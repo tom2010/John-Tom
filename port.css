@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background: #111;
+}
+
+a {
+    color:#fff;
+    text-decoration: none;
+}
+.navbar {
+    left:0;
+    top:0;
+    width: 100%;
+    position: fixed;
+    padding: 25px 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    visibility: hidden;
+    opacity:0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes show-content{
+    100%{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.navbar .logo{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+@media screen and (max-width: 960px){
+    .navbar__toggle {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 80px;
+        z-index: 100;
+        padding: 0 20px;
+        opacity: 1;
+    }
+    .navbar__menu {
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        background: #131313;
+        transition: all 0.5s ease;
+        height: 50vh;
+        z-index: -1;
+        opacity: 0;
+        top: -1000px;
+    }
+    .navbar__menu.active {
+        background: #131313;
+        top: 100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 99;
+        height: 50vh;
+        font-size: 1.6rem;
+        display: table;
+        width: 100%;
+    }
+    #navbar__logo {
+        padding-left: 25px;
+    }
+    .navbar__toggle .bar {
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: #fff;
+    }
+    .navbar ul {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+         display: table;
+    }
+    #mobile-menu {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+    .navbar__toggle .bar {
+        display: block;
+        cursor: pointer;
+    }
+    #mobile-menu.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    #mobile-menu.is-active .bar:nth-child(1) {
+        transform: translateY(8px)    rotate(45deg);
+    }
+    #mobile-menu.is-active .bar:nth-child(3) {
+        transform: translateY(-8px)  rotate(-45deg);
+     }
+    }
+
+.navbar ul {
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin: left 35px;
+}
+
+.navbar ul li a {
+    font-size: 20px;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover a,
+.navbar ul li.active a{
+    color:#7cf03d;
+}  
+
+.bars-animation{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+
+.bars-animation .bar {
+    width: 100%;
+    height: 100%;
+    background: #1f242d;
+    transform: translateY(-100%);
+    animation: show-bars  .5s ease-in-out forwards ;
+    animation-delay: calc(.1s * var(--i));
+}
+
+@keyframes show-bars {
+    100%{
+        transform: translateY(0%);
+    }
+}
+
+.card-container{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    justify-content: center;
+    z-index: -1;
+    align-items: center;
+    position:  relative;
+    
+}
+
+.card{
+    width: 325px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+    margin:20px;
+    align-items: center;
+    justify-items: center;
+
+}
+
+.card:hover {
+    background-color: rgb(62, 62, 62);
+}
+.card img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-content{
+    padding: 16px;
+}
+
+.card-content h3{
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.card-content p{
+    color: #666;
+    font-size: 15px;
+    line-height:1.3;
+}
+
+
+.card-content a button{
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 16px;
+    color:#fff;
+}
+
+.card-content .a button :hover {
+    color:#4837ff;
+    cursor: pointer;
+}
+
+.github-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #333;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+.github-link i {
+  margin-right: 8px;
+  font-size: 1.3rem;
+}
+.github-link:hover {
+  color: #4837ff;
+}
